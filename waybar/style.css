@@ -1,0 +1,93 @@
+@import "../themes/current/waybar.css";
+/* @import "colors/customs/gruvbox-material.css"; */
+
+* {
+  all: unset;
+  font-family: "Iosevka Nerd Font Propo", monospace;
+}
+
+window#waybar {
+  background: transparent;
+  color: @fg;
+}
+
+window#waybar > box {
+  background-color: @bg0;
+  border-radius: 0 0 10px 10px;
+}
+#workspaces {
+  min-width: 100px;
+  font-size: 0.5rem;
+  padding: 2px 4px;
+  margin: 11px 0;
+  border-radius: 99px;
+}
+
+#workspaces button {
+  background-color: @bg4;
+  color: transparent;
+  padding: 0px 5px;
+  border-radius: 99px;
+  margin: 0 2px;
+  min-width: 4px;
+}
+
+#workspaces button.active {
+  background-color: @aqua;
+  min-width: 1.4rem;
+  transition: none;
+}
+
+#clock,
+#clock#right {
+  margin: 0 15px;
+  font-weight: 700;
+  font-size: 1.12rem;
+}
+
+.modules-left {
+  margin-left: 12px;
+}
+
+.modules-right {
+  margin-right: 12px;
+}
+
+#network {
+  color: @purple;
+  font-weight: 700;
+  margin: 0 10px;
+}
+
+#power-profiles-daemon {
+  color: @blue;
+  margin: 0 12px;
+  font-weight: 700;
+  /* font-size: 0.7rem; */
+  /* letter-spacing: 1px; */
+}
+
+#mpd {
+  color: @orange;
+  margin: 0 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  /* letter-spacing: 1px; */
+}
+
+#cava {
+  color: @orange;
+  margin: 0 12px;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+#battery {
+  color: @green;
+  font-weight: 700;
+  margin: 0 10px;
+}
+
+#pulseaudio {
+  color: @yellow;
+}
