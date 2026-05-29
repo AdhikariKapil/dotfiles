@@ -7,7 +7,7 @@ hl.config({
 		kb_layout = "us",
 		kb_variant = "",
 		kb_model = "",
-		kb_options = "caps:escape",
+		-- kb_options = "caps:escape",
 		kb_rules = "",
 
 		follow_mouse = 1,
@@ -32,4 +32,3 @@ hl.device({
 	name = "epic-mouse-v1",
 	sensitivity = -0.5,
 })
-

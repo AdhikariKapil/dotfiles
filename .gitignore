@@ -35,3 +35,5 @@ walker
 xdg-terminals.list
 xsettingsd
 zen
+mpd/log
+mpd/database

@@ -4,7 +4,7 @@
 
 -- Set programs that you use
 
-local terminal = "kitty"
+local terminal = "wezterm"
 local fileManager = "nautilus"
 local menu = "rofi -show drun"
 
@@ -17,10 +17,14 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+
+-- Logout
 hl.bind(
-	mainMod .. " + M",
+	mainMod .. " + Delete",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("wlogout"))
+
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. "+ SHIFT + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + U", hl.dsp.window.pseudo())
@@ -49,8 +53,8 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/clipboard-pic
 hl.bind(mainMod .. "+ SHIFT + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/clipboard-clear.sh"))
 
 -- Theme and Wallpaper Picker
-hl.bind(mainMod .. "+ SHIFT + W", hl.dsp.exec_cmd("~/.local/bin/theme-switch.sh"))
-hl.bind(mainMod .. "+ W", hl.dsp.exec_cmd("~/.local/bin/wallpaper-pick.sh"))
+hl.bind(mainMod .. "+ SHIFT + W", hl.dsp.exec_cmd("theme-switch.sh"))
+hl.bind(mainMod .. "+ W", hl.dsp.exec_cmd("wallpaper-pick.sh"))
 
 -- Hyprlock
 hl.bind(mainMod .. "+ SHIFT + L", hl.dsp.exec_cmd("hyprlock"))

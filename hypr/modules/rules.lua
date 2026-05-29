@@ -42,3 +42,35 @@ hl.layer_rule({
 	match = { namespace = "swaync-control-center" },
 	animation = "slide top",
 })
+
+-- Make a rule where kitty and vscodium always stays transparent even in fullscreen mode, and also make them floating and on workspace 2
+-- hl.window_rule({
+-- 	name = "transparent-wezterm-vscodium",
+-- 	match = { class = "wezterm|vscodium" },
+-- 	opacity = 0.7,
+-- 	float = false,
+-- })
+
+-- Make wezterm transparent even in fullscreen mode
+hl.window_rule({
+	name = "transparent-wezterm",
+	match = { class = "org.wezfurlong.wezterm" },
+	opacity = 0.7,
+	float = false,
+})
+
+-- Make vscodium transparent even in fullscreen kb
+hl.window_rule({
+	name = "transparent-vscodium",
+	match = { class = "vscodium" },
+	opacity = 0.7,
+	float = false,
+})
+
+-- Make Bitwarden start in float mode
+hl.window_rule({
+	name = "Bitwarden Float",
+	match = { class = "Bitwarden" },
+	opacity = 1,
+	float = true,
+})

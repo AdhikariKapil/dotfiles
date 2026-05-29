@@ -7,6 +7,7 @@
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
+hl.env("PATH", os.getenv("HOME") .. "/.local/bin:" .. (os.getenv("PATH") or ""))
 hl.on("hyprland.start", function()
 	hl.exec_cmd("killall hypridle; sleep 1; hypridle &")
 	hl.exec_cmd("awww-daemon &")
