@@ -8,10 +8,10 @@
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-	hl.exec_cmd("hypridle &")
+	hl.exec_cmd("killall hypridle; sleep 1; hypridle &")
 	hl.exec_cmd("awww-daemon &")
-	hl.exec_cmd("swaync")
-	hl.exec_cmd("waybar")
+	hl.exec_cmd("swaync &")
+	hl.exec_cmd("killall waybar; sleep 1; waybar &")
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
 	hl.exec_cmd("hyprctl setcursor macOS 24")
