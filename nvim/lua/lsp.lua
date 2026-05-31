@@ -18,7 +18,7 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format Local buff
 vim.diagnostic.config({
 	virtual_text = true,
 	underline = true,
-	update_in_insert = true,
+	-- update_in_insert = true,
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -76,6 +76,16 @@ vim.lsp.config("pylsp", {
 				jedi_hover = { enabled = true },
 				jedi_references = { enabled = true },
 				jedi_signature_help = { enabled = true },
+
+				-- Pylint handle all
+				pylint = {
+					enabled = true,
+					args = {
+						"--disable=missing-module-docstring",
+						"--disable=missing-function-docstring",
+						"--disable=missing-class-docstring",
+					},
+				},
 			},
 		},
 	},

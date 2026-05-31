@@ -12,9 +12,9 @@
 }
 {
     "label" : "logout",
-    "action" : "loginctl terminal-user $USER",
+    "action" : "hyprctl dispatch 'hl.dsp.exit()'",
     "text" : "Logout",
-    "keybind" : "e"
+    "keybind" : "o"
 }
 {
     "label" : "shutdown",

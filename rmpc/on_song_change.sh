@@ -30,27 +30,27 @@ if [ -n "$SONG" ]; then
         fi
     fi
 
-    # --- Save to Music ---
-    CACHE_DIR="/home/whothis/.cache/rmpc/youtube"
-    MUSIC_DIR="/home/whothis/Music"
-    FILE=$(echo "$SONG" | grep -o '"file":"[^"]*"' | sed 's/"file":"//;s/"//')
-    if [ -n "$FILE" ]; then
-        FILENAME=$(basename "$FILE")
-        SOURCE="$CACHE_DIR/$FILENAME"
-        if [ -f "$SOURCE" ]; then
-            if echo "$FULL_TITLE" | grep -q "^$ARTIST - "; then
-                CLEAN_TITLE=$(echo "$FULL_TITLE" | sed "s/^$ARTIST - //")
-            else
-                CLEAN_TITLE="$FULL_TITLE"
-            fi
-            ARTIST_CLEAN=$(echo "$ARTIST" | tr '/' '_')
-            TITLE_CLEAN=$(echo "$CLEAN_TITLE" | tr '/' '_')
-            EXT="${FILENAME##*.}"
-            TARGET_FILE="$MUSIC_DIR/$ARTIST_CLEAN - $TITLE_CLEAN.$EXT"
-            if [ ! -f "$TARGET_FILE" ]; then
-                cp "$SOURCE" "$TARGET_FILE"
-                mpc update 2>/dev/null &
-            fi
-        fi
-    fi
+    # # --- Save to Music ---
+    # CACHE_DIR="/home/whothis/.cache/rmpc/youtube"
+    # MUSIC_DIR="/home/whothis/Music"
+    # FILE=$(echo "$SONG" | grep -o '"file":"[^"]*"' | sed 's/"file":"//;s/"//')
+    # if [ -n "$FILE" ]; then
+    #     FILENAME=$(basename "$FILE")
+    #     SOURCE="$CACHE_DIR/$FILENAME"
+    #     if [ -f "$SOURCE" ]; then
+    #         if echo "$FULL_TITLE" | grep -q "^$ARTIST - "; then
+    #             CLEAN_TITLE=$(echo "$FULL_TITLE" | sed "s/^$ARTIST - //")
+    #         else
+    #             CLEAN_TITLE="$FULL_TITLE"
+    #         fi
+    #         ARTIST_CLEAN=$(echo "$ARTIST" | tr '/' '_')
+    #         TITLE_CLEAN=$(echo "$CLEAN_TITLE" | tr '/' '_')
+    #         EXT="${FILENAME##*.}"
+    #         TARGET_FILE="$MUSIC_DIR/$ARTIST_CLEAN - $TITLE_CLEAN.$EXT"
+    #         if [ ! -f "$TARGET_FILE" ]; then
+    #             cp "$SOURCE" "$TARGET_FILE"
+    #             mpc update 2>/dev/null &
+    #         fi
+    #     fi
+    # fi
 fi

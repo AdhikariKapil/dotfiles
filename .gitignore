@@ -35,5 +35,13 @@ walker
 xdg-terminals.list
 xsettingsd
 zen
-mpd/log
 mpd/database
+mpd/log
+com.bilingify.readest/
+fancontrol-gui/
+hygg/
+lazydocker/
+posting/
+starship.toml.bak
+ytm-player/
+zathura/

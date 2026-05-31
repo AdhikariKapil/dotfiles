@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 vim.keymap.set("x", "p", [["_dP]], { desc = "Paste over selection without losing yanked text" })
 
 -- Delete text without saving it to any register
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
+vim.keymap.set({ "n", "v" }, "d", [["_d]], { desc = "Delete without yanking" })
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader><Esc>", ":nohl<CR>", { desc = "Clear search highlighting" })
@@ -27,6 +27,31 @@ vim.keymap.set("n", "<leader>rr", "<cmd>e!<CR>", { desc = "Relaod the file from 
 
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Fast quit " })
 vim.keymap.set("n", "<leader>qq", "<cmd>q!<CR>", { desc = "Force quit" })
+
+-- Keymap for splits resizing
+local opts = { silent = true }
+vim.keymap.set("n", "<A-h>", ":vertical resize +3<CR>", opts)
+vim.keymap.set("n", "<A-l>", ":vertical resize -3<CR>", opts)
+vim.keymap.set("n", "<A-j>", ":resize -3<CR>", opts)
+vim.keymap.set("n", "<A-k>", ":resize +3<CR>", opts)
+
+-- Keymap for splits
+vim.keymap.set("n", "<leader>'", "<C-w>v", { desc = "Vertical Split" })
+vim.keymap.set("n", '<leader>"', "<C-w>s", { desc = "Horizontal Split" })
+vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Equalize Split" })
+
+-- Toggle maximize for splits
+local zoomed = false
+vim.keymap.set("n", "<leader>z", function()
+	if zoomed then
+		vim.cmd("wincmd =")
+		zoomed = false
+	else
+		vim.cmd("wincmd |")
+		vim.cmd("wincmd _")
+		zoomed = true
+	end
+end, { desc = "Toggle maximize" })
 
 vim.keymap.set(
 	"n",

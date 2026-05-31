@@ -1,16 +1,14 @@
 {
     "layer": "top",
-    "width": 1000,
-    "modules-left": [
-        "pulseaudio",
-        "cava"
-        // "mpd"
-    ],
+    "position": "bottom",
+    // "width": 1000,
+    "modules-left": ["pulseaudio", "cava", "mpd"],
     "modules-center": ["clock", "hyprland/workspaces", "clock#right"],
     "modules-right": [
-        // "power-profiles-daemon",
+        "power-profiles-daemon",
         "network",
-        "battery"
+        "battery",
+        "custom/power"
     ],
     "clock": {
         "format": "{:%I}"
@@ -18,6 +16,19 @@
     "clock#right": {
         "format": "{:%M}"
     },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
+    },
+
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -113,7 +124,7 @@
     "cava": {
         "framerate": 30,
         "autosens": 0,
-        "sensitivity": 4,
+        "sensitivity": 3,
         "bars": 14,
         // "lower_cutoff_freq": 50,
         // "higher_cutoff_freq": 10000,

@@ -28,5 +28,5 @@ vim.api.nvim_create_user_command("CopilotToggle", function()
 	local message = new_status and "Copilot Enabled" or "Copilot Disabled"
 	vim.notify(message, vim.log.levels.INFO, { title = "Copilot" })
 end, { desc = "Toggle Copilot enable/disable" })
-
 vim.keymap.set("n", "<leader>ct", ":CopilotToggle<CR>", { noremap = true, silent = true, desc = "Toggle Copilot" })
+

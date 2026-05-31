@@ -2,14 +2,14 @@ require("CopilotChat").setup({
 	model = "claude-haiku-4.5",
 	temperature = 0.1, -- lowered = focused, higher = creative
 	trusted_tools = nil,
-	window = {
-		layout = "float",
-		width = 80,
-		height = 40,
-		border = "rounded",
-		title = "🤖 AI Assistant",
-		zindex = 100, -- Ensure window stays on top
-	},
+	-- window = {
+	-- 	layout = "float",
+	-- 	width = 80,
+	-- 	height = 40,
+	-- 	border = "rounded",
+	-- 	title = "🤖 AI Assistant",
+	-- 	zindex = 100, -- Ensure window stays on top
+	-- },
 	headers = {
 		user = "👤 You",
 		assistant = "🤖 Copilot",
@@ -33,6 +33,11 @@ require("CopilotChat").setup({
 		},
 	},
 })
+
+-- Disabled in start (need manual start)
+vim.defer_fn(function()
+	vim.cmd("Copilot disable")
+end, 600)
 
 vim.keymap.set("n", "<leader>ca", "<cmd>CopilotChatOpen<CR>", { desc = "Open Copilot chat window" })
 vim.keymap.set("n", "<C-c>", "<cmd>CopilotChatStop<CR>", { desc = "Stop current output" })

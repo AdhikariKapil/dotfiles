@@ -13,7 +13,7 @@ vim.pack.add({
 	"https://github.com/tpope/vim-fugitive",
 	"https://github.com/tpope/vim-dadbod",
 	"https://github.com/kristijanhusak/vim-dadbod-ui",
-	-- "https://github.com/folke/todo-comments.nvim",
+	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/christoomey/vim-tmux-navigator",
 	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 	"https://github.com/rcarriga/nvim-notify",
@@ -22,6 +22,10 @@ vim.pack.add({
 	-- For Path Completion
 	"https://github.com/hrsh7th/nvim-cmp",
 	"https://github.com/hrsh7th/cmp-path",
+
+	-- LateX
+	"https://github.com/lervag/vimtex",
+	"https://github.com/let-def/texpresso.nvim",
 
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
 
@@ -125,10 +129,10 @@ require("mini.pairs").setup()
 ---- mini hipatterns ----
 require("mini.hipatterns").setup({
 	highlighters = {
-		fixme = { pattern = "FIXME", group = "MiniHipatternsFixme" },
-		hack = { pattern = "HACK", group = "MiniHipatternsHack" },
-		todo = { pattern = "TODO", group = "MiniHipatternsTodo" },
-		note = { pattern = "NOTE", group = "MiniHipatternsNote" },
+		-- fixme = { pattern = "FIXME", group = "MiniHipatternsFixme" },
+		-- hack = { pattern = "HACK", group = "MiniHipatternsHack" },
+		-- todo = { pattern = "TODO", group = "MiniHipatternsTodo" },
+		-- note = { pattern = "NOTE", group = "MiniHipatternsNote" },
 
 		hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 	},
@@ -169,7 +173,7 @@ vim.keymap.set("n", "<leader>dc", "<cmd>DBUIClose<CR>", { desc = "Close DB UI" }
 vim.keymap.set("n", "<leader>dq", "<cmd>DBUIFindBuffer<CR>", { desc = "Find DB Buffer" })
 
 ---- TODO Comments ----
--- require("todoComments")
+require("todoComments")
 
 ---- Telescope ----
 local builtin = require("telescope.builtin")
@@ -186,3 +190,5 @@ require("notification")
 
 ---- Status line ----
 require("statusLualine")
+
+-- require("texpresso").setup({})

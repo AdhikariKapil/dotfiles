@@ -5,6 +5,7 @@
 -- Set programs that you use
 
 local terminal = "wezterm"
+local alt_terminal = "kitty"
 local fileManager = "nautilus"
 local menu = "rofi -show drun"
 
@@ -15,8 +16,16 @@ local menu = "rofi -show drun"
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+
+-- Terminal
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. "+ SHIFT + Return", hl.dsp.exec_cmd(alt_terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+
+-- Browser
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"))
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("zen-browser"))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("brave --app=https://chat.deepseek.com"))
 
 -- Logout
 hl.bind(
@@ -24,6 +33,9 @@ hl.bind(
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("wlogout"))
+
+-- Monitor Toggle
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-monitor.sh"))
 
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. "+ SHIFT + F", hl.dsp.window.float({ action = "toggle" }))
@@ -44,6 +56,11 @@ hl.bind(mainMod .. " + SHIFT + K ", hl.dsp.window.swap({ next = "left" }))
 -- Waybar
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("/home/whothis/.config/waybar/scripts/launch.sh"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"), { description = "Toggle Waybar" })
+hl.bind(
+	mainMod .. " + SHIFT + T",
+	hl.dsp.exec_cmd("~/.config/waybar/scripts/width-toggle.sh"),
+	{ description = "Toggle Size" }
+)
 
 -- Swaync
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("swaync-client -t"), { description = "Toggle Swaync" })

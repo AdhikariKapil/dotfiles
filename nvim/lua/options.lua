@@ -1,4 +1,4 @@
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 600
 
 vim.g.netrw_banner = 0
 vim.opt.nu = true
@@ -84,3 +84,17 @@ vim.keymap.set("n", "<leader>m", function()
 		vim.cmd("tabclose")
 	end
 end, { desc = "Toggle maximize current window" })
+
+-- Splits Indicator
+vim.opt.fillchars = {
+	vert = "│",
+	horiz = "─",
+}
+
+vim.api.nvim_set_hl(0, "WinSeparator", {
+	fg = "#6c7086",
+})
+
+vim.api.nvim_set_hl(0, "NormalNC", {
+	bg = "#0d0d0d",
+})
