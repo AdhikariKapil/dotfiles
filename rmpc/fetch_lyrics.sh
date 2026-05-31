@@ -1,3 +1,5 @@
+######## We need SyncedLyrics for this so make sure you install syncedlyrics package ######
+
 #!/bin/bash
 LYRICS_DIR="/home/whothis/Music/lyrics"
 echo "$(date): Lyrics script ran" >> /tmp/rmpc_debug.log
