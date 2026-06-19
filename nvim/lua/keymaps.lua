@@ -6,8 +6,8 @@ vim.keymap.set("x", "p", [["_dP]], { desc = "Paste over selection without losing
 -- Delete text without saving it to any register
 vim.keymap.set({ "n", "v" }, "d", [["_d]], { desc = "Delete without yanking" })
 
-vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "<leader><Esc>", ":nohl<CR>", { desc = "Clear search highlighting" })
+-- vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlighting" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move lines down in visual selection" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves line up in visual selection" })
@@ -59,8 +59,6 @@ vim.keymap.set(
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]],
 	{ desc = "Replace word cursor is on globally" }
 )
-vim.keymap.set("n", "<leader>X", "<CMD>!chmod +x %<CR>", { silent = true, desc = "makes file executable" })
-
 vim.keymap.set("n", "<leader>re", "<CMD>restart<CR>", { desc = "Restart config :restart)" })
 
 vim.keymap.set("n", "<leader>msg", "<CMD>message<CR>")
@@ -70,7 +68,7 @@ vim.keymap.set("n", "zz", "zt", { noremap = true, silent = true })
 vim.keymap.set("n", "zt", "zz", { noremap = true, silent = true })
 
 -- Map Ctrl + L to move right in Insert mode
-vim.api.nvim_set_keymap("i", "<M-l>", "<Right>", { desc = "Move Right (stay in Insert Mode)" })
+vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { desc = "Move Right (stay in Insert Mode)" })
 
 -- native undotree
 vim.keymap.set("n", "<leader>u", function()
@@ -83,3 +81,14 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+-- Vim Splits max and min
+vim.keymap.set("n", "<leader>m", function()
+	if vim.fn.winnr("$") > 1 then
+		-- Multiple windows open: maximize current
+		vim.cmd("tab split")
+	else
+		-- Only one window (already maximized): close tab, go back
+		vim.cmd("tabclose")
+	end
+end, { desc = "Toggle maximize current window" })

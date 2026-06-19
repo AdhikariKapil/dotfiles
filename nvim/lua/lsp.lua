@@ -80,6 +80,7 @@ vim.lsp.config("pylsp", {
 				-- Pylint handle all
 				pylint = {
 					enabled = true,
+					executable = vim.fn.expand("~/.local/share/nvim/mason/bin/pylint"),
 					args = {
 						"--disable=missing-module-docstring",
 						"--disable=missing-function-docstring",
@@ -95,6 +96,19 @@ vim.lsp.config("pylsp", {
 	},
 })
 
+vim.lsp.config("pyright", {
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPath = true,
+				diagnosticMode = "workspace",
+				useLibraryCodeForTypes = true,
+				typeCheckingMode = "basic",
+			},
+		},
+	},
+})
+
 vim.lsp.config("cssls", {
 	settings = {
 		css = {
@@ -105,10 +119,12 @@ vim.lsp.config("cssls", {
 
 vim.lsp.enable({
 	"lua_ls",
-	"pylsp",
+	-- "pylsp",
 	"jsonls",
 	"ts_ls",
 	"eslint",
 	"tailwindcss",
 	"cssls",
+	-- "pylint",
+	"pyright",
 })

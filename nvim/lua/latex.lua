@@ -1,3 +1,5 @@
+vim.cmd("filetype plugin indent on")
+vim.cmd("syntax enable")
 vim.g.tex_flavour = "latex"
 
 vim.g.vimtex_enabled = 1

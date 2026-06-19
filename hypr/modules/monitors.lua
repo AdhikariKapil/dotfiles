@@ -1,10 +1,24 @@
         hl.monitor({
             output = "HDMI-A-2",
             mode = "1920x1080@143.95",
-            position = "0x0",
+            position = "1920x0",
             scale = "1",
         })
         hl.monitor({
             output = "eDP-1",
-            disabled = true
+            mode = "1920x1080@144",
+            position = "0x0",
+            scale = "1",
         })
+
+        hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-2", persistent = true })
+        hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-2", persistent = true })
+        hl.workspace_rule({ workspace = "3", monitor = "HDMI-A-2", persistent = true })
+        hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-2", persistent = true })
+        hl.workspace_rule({ workspace = "5", monitor = "HDMI-A-2", persistent = true })
+
+        hl.workspace_rule({ workspace = "6", monitor = "eDP-1", persistent = true })
+        hl.workspace_rule({ workspace = "7", monitor = "eDP-1", persistent = true })
+        hl.workspace_rule({ workspace = "8", monitor = "eDP-1", persistent = true })
+        hl.workspace_rule({ workspace = "9", monitor = "eDP-1", persistent = true })
+        hl.workspace_rule({ workspace = "10", monitor = "eDP-1", persistent = true })

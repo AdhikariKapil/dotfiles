@@ -1,116 +1,112 @@
 {
-    "plugins": {
-        "CopilotChat.nvim": {
-            "rev": "2db7b404110f92e6d9197fee9cb9a708ae205a10",
-            "src": "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
-        },
-        "cmp-path": {
-            "rev": "c642487086dbd9a93160e1679a1327be111cbc25",
-            "src": "https://github.com/hrsh7th/cmp-path"
-        },
-        "codecompanion.nvim": {
-            "rev": "b1cbe52ecd71e7b0ed43ac1dc6eb3aab4099db00",
-            "src": "https://github.com/olimorris/codecompanion.nvim"
-        },
-        "conform.nvim": {
-            "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
-            "src": "https://github.com/stevearc/conform.nvim"
-        },
-        "copilot.vim": {
-            "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
-            "src": "https://github.com/github/copilot.vim"
-        },
-        "friendly-snippets": {
-            "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
-            "src": "https://github.com/rafamadriz/friendly-snippets"
-        },
-        "harpoon": {
-            "rev": "1bc17e3e42ea3c46b33c0bbad6a880792692a1b3",
-            "src": "https://github.com/theprimeagen/harpoon"
-        },
-        "lazygit.nvim": {
-            "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
-            "src": "https://github.com/kdheepak/lazygit.nvim"
-        },
-        "lualine.nvim": {
-            "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
-            "src": "https://github.com/nvim-lualine/lualine.nvim"
-        },
-        "mason.nvim": {
-            "rev": "bb639d4bf385a4d89f478b83af4d770be05ab7eb",
-            "src": "https://github.com/mason-org/mason.nvim"
-        },
-        "mini.nvim": {
-            "rev": "15abccbe23525ee0502d2efe620c77db00bfb93c",
-            "src": "https://github.com/nvim-mini/mini.nvim"
-        },
-        "nvim-cmp": {
-            "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
-            "src": "https://github.com/hrsh7th/nvim-cmp"
-        },
-        "nvim-emmet": {
-            "rev": "cde4fb2968704aae5c18b7f8a9bc2508767bb78d",
-            "src": "https://github.com/olrtg/nvim-emmet"
-        },
-        "nvim-lspconfig": {
-            "rev": "9573948c38bfabeec353ae7dd7d3ffec4c506a6b",
-            "src": "https://github.com/neovim/nvim-lspconfig"
-        },
-        "nvim-notify": {
-            "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
-            "src": "https://github.com/rcarriga/nvim-notify"
-        },
-        "nvim-treesitter": {
-            "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
-            "src": "https://github.com/nvim-treesitter/nvim-treesitter"
-        },
-        "plenary.nvim": {
-            "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-            "src": "https://github.com/nvim-lua/plenary.nvim"
-        },
-        "tailwindcss-colorizer-cmp.nvim": {
-            "rev": "3d3cd95e4a4135c250faf83dd5ed61b8e5502b86",
-            "src": "https://github.com/roobert/tailwindcss-colorizer-cmp.nvim"
-        },
-        "telescope-fzf-native.nvim": {
-            "rev": "b25b749b9db64d375d782094e2b9dce53ad53a40",
-            "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-        },
-        "telescope.nvim": {
-            "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
-            "src": "https://github.com/nvim-telescope/telescope.nvim"
-        },
-        "texpresso.nvim": {
-            "rev": "5630dca6090787c446e72886812a1b6a5716c2fa",
-            "src": "https://github.com/let-def/texpresso.nvim"
-        },
-        "todo-comments.nvim": {
-            "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
-            "src": "https://github.com/folke/todo-comments.nvim"
-        },
-        "vim-dadbod": {
-            "rev": "6d1d41da4873a445c5605f2005ad2c68c99d8770",
-            "src": "https://github.com/tpope/vim-dadbod"
-        },
-        "vim-dadbod-ui": {
-            "rev": "07e92e22114cc5b1ba4938d99897d85b58e20475",
-            "src": "https://github.com/kristijanhusak/vim-dadbod-ui"
-        },
-        "vim-fugitive": {
-            "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
-            "src": "https://github.com/tpope/vim-fugitive"
-        },
-        "vim-moonfly-colors": {
-            "rev": "1c0a9994bb6bb5b43859c67924aabd061c4b7905",
-            "src": "https://github.com/bluz71/vim-moonfly-colors"
-        },
-        "vim-tmux-navigator": {
-            "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
-            "src": "https://github.com/christoomey/vim-tmux-navigator"
-        },
-        "vimtex": {
-            "rev": "24e229914182ff301496a3e2c4214b28c4928d3f",
-            "src": "https://github.com/lervag/vimtex"
-        }
+  "plugins": {
+    "CopilotChat.nvim": {
+      "rev": "2db7b404110f92e6d9197fee9cb9a708ae205a10",
+      "src": "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
+    },
+    "cmp-path": {
+      "rev": "c642487086dbd9a93160e1679a1327be111cbc25",
+      "src": "https://github.com/hrsh7th/cmp-path"
+    },
+    "codecompanion.nvim": {
+      "rev": "b1cbe52ecd71e7b0ed43ac1dc6eb3aab4099db00",
+      "src": "https://github.com/olimorris/codecompanion.nvim"
+    },
+    "conform.nvim": {
+      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "copilot.vim": {
+      "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
+      "src": "https://github.com/github/copilot.vim"
+    },
+    "friendly-snippets": {
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "harpoon": {
+      "rev": "1bc17e3e42ea3c46b33c0bbad6a880792692a1b3",
+      "src": "https://github.com/theprimeagen/harpoon"
+    },
+    "lazygit.nvim": {
+      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
+      "src": "https://github.com/kdheepak/lazygit.nvim"
+    },
+    "mason.nvim": {
+      "rev": "bb639d4bf385a4d89f478b83af4d770be05ab7eb",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.nvim": {
+      "rev": "15abccbe23525ee0502d2efe620c77db00bfb93c",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "nvim-cmp": {
+      "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
+      "src": "https://github.com/hrsh7th/nvim-cmp"
+    },
+    "nvim-emmet": {
+      "rev": "cde4fb2968704aae5c18b7f8a9bc2508767bb78d",
+      "src": "https://github.com/olrtg/nvim-emmet"
+    },
+    "nvim-lspconfig": {
+      "rev": "9573948c38bfabeec353ae7dd7d3ffec4c506a6b",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-notify": {
+      "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
+      "src": "https://github.com/rcarriga/nvim-notify"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "tailwindcss-colorizer-cmp.nvim": {
+      "rev": "3d3cd95e4a4135c250faf83dd5ed61b8e5502b86",
+      "src": "https://github.com/roobert/tailwindcss-colorizer-cmp.nvim"
+    },
+    "telescope-fzf-native.nvim": {
+      "rev": "b25b749b9db64d375d782094e2b9dce53ad53a40",
+      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "texpresso.nvim": {
+      "rev": "5630dca6090787c446e72886812a1b6a5716c2fa",
+      "src": "https://github.com/let-def/texpresso.nvim"
+    },
+    "todo-comments.nvim": {
+      "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
+      "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "vim-dadbod": {
+      "rev": "6d1d41da4873a445c5605f2005ad2c68c99d8770",
+      "src": "https://github.com/tpope/vim-dadbod"
+    },
+    "vim-dadbod-ui": {
+      "rev": "07e92e22114cc5b1ba4938d99897d85b58e20475",
+      "src": "https://github.com/kristijanhusak/vim-dadbod-ui"
+    },
+    "vim-fugitive": {
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
+      "src": "https://github.com/tpope/vim-fugitive"
+    },
+    "vim-moonfly-colors": {
+      "rev": "1c0a9994bb6bb5b43859c67924aabd061c4b7905",
+      "src": "https://github.com/bluz71/vim-moonfly-colors"
+    },
+    "vim-tmux-navigator": {
+      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "vimtex": {
+      "rev": "24e229914182ff301496a3e2c4214b28c4928d3f",
+      "src": "https://github.com/lervag/vimtex"
     }
+  }
 }

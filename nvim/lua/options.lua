@@ -1,4 +1,4 @@
-vim.opt.timeoutlen = 600
+vim.opt.timeoutlen = 400
 
 vim.g.netrw_banner = 0
 vim.opt.nu = true
@@ -10,15 +10,18 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.wrap = false
+vim.opt.scrolloff = 10
 vim.opt.smartindent = true
 vim.opt.inccommand = "split"
+
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 0
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.laststatus = 2
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -31,13 +34,10 @@ vim.opt.shortmess:append("c")
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.isfname:append("@-@")
 -- vim.opt.guicursor = ""
-vim.opt.scrolloff = 10
 
 vim.opt.colorcolumn = "0"
 vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
-
-vim.opt.formatoptions:remove({ "r", "o" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
@@ -45,13 +45,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.hl.on_yank()
 	end,
 })
-
-vim.o.cmdheight = 0
--- vim.api.nvim_create_autocmd("BufWinEnter", {
--- 	callback = function()
--- 		vim.o.cmdheight = 0
--- 	end,
--- })
 
 -- Kill comment continuation everywhere
 vim.api.nvim_create_autocmd("FileType", {
@@ -74,17 +67,6 @@ vim.cmd([[
     hi PmenuMatchSel guifg=#ffffff gui=bold
 ]])
 
--- Vim Splits max and min
-vim.keymap.set("n", "<leader>m", function()
-	if vim.fn.winnr("$") > 1 then
-		-- Multiple windows open: maximize current
-		vim.cmd("tab split")
-	else
-		-- Only one window (already maximized): close tab, go back
-		vim.cmd("tabclose")
-	end
-end, { desc = "Toggle maximize current window" })
-
 -- Splits Indicator
 vim.opt.fillchars = {
 	vert = "│",
@@ -98,3 +80,22 @@ vim.api.nvim_set_hl(0, "WinSeparator", {
 vim.api.nvim_set_hl(0, "NormalNC", {
 	bg = "#0d0d0d",
 })
+
+-- -- Show cmdheight when entering command-line mode
+-- vim.api.nvim_create_autocmd("CmdlineEnter", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.opt.cmdheight = 1
+-- 	end,
+-- })
+--
+-- -- Hide it again when leaving
+-- vim.api.nvim_create_autocmd("CmdlineLeave", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.opt.cmdheight = 1 -- Keep at 1 briefly, then hide
+-- 		vim.defer_fn(function()
+-- 			vim.opt.cmdheight = 0
+-- 		end, 100)
+-- 	end,
+-- })

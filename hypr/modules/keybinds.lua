@@ -25,7 +25,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- Browser
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("zen-browser"))
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("brave --app=https://chat.deepseek.com"))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("brave-origin --app=https://chat.deepseek.com"))
 
 -- Logout
 hl.bind(

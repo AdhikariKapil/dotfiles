@@ -1,8 +1,8 @@
 {
     "layer": "top",
     "position": "bottom",
-    // "width": 1000,
-    "modules-left": ["pulseaudio", "cava", "mpd"],
+    "width": 1000,
+    "modules-left": ["pulseaudio", "cava"],
     "modules-center": ["clock", "hyprland/workspaces", "clock#right"],
     "modules-right": [
         "power-profiles-daemon",

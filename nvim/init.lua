@@ -7,8 +7,15 @@ require("pack")
 
 -- LateX settings
 require("latex")
-vim.cmd("filetype plugin indent on")
-vim.cmd("syntax enable")
 
-vim.cmd.colorscheme("moonfly")
 vim.opt.clipboard = "unnamedplus"
+
+---=== COLOR SCHEMES ===---
+-- vim.cmd.colorscheme("moonfly")
+-- vim.cmd.colorscheme("unokai")
+
+vim.cmd.colorscheme("unokai")
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+vim.api.nvim_set_hl(0, "MsgSeparator", { bg = "NONE", fg = "NONE" })

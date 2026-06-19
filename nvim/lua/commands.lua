@@ -30,3 +30,21 @@ vim.api.nvim_create_user_command("CopilotToggle", function()
 end, { desc = "Toggle Copilot enable/disable" })
 vim.keymap.set("n", "<leader>ct", ":CopilotToggle<CR>", { noremap = true, silent = true, desc = "Toggle Copilot" })
 
+-- Sending tmux filename
+if vim.env.TMUX then
+	vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "WinEnter" }, {
+		callback = function()
+			local file = vim.fn.expand("%:t")
+			if file == "" then
+				file = "[nvim]"
+			end
+			vim.fn.system('tmux rename-window "' .. file .. '"')
+		end,
+	})
+
+	vim.api.nvim_create_autocmd("VimLeave", {
+		callback = function()
+			vim.fn.system("tmux set-window-option automatic-rename on")
+		end,
+	})
+end

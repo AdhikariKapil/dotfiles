@@ -17,7 +17,7 @@ vim.pack.add({
 	"https://github.com/christoomey/vim-tmux-navigator",
 	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 	"https://github.com/rcarriga/nvim-notify",
-	"https://github.com/nvim-lualine/lualine.nvim",
+	-- "https://github.com/nvim-lualine/lualine.nvim",
 
 	-- For Path Completion
 	"https://github.com/hrsh7th/nvim-cmp",
@@ -60,7 +60,7 @@ vim.keymap.set("n", "<leader>e", function()
 	MiniFiles.reveal_cwd()
 end, { desc = "Toggle into currently opened file" })
 
----- mini cmdline completion ----
+-- ---- mini cmdline completion ----
 require("mini.cmdline").setup({
 	autocorrect = { enable = true },
 })
@@ -189,6 +189,6 @@ vim.keymap.set("n", "<leader>cs", require("telescope.builtin").colorscheme, { de
 require("notification")
 
 ---- Status line ----
-require("statusLualine")
+-- require("statusLualine")
 
 -- require("texpresso").setup({})
