@@ -8,8 +8,8 @@ require("conform").setup({
 		typescriptreact = { "prettierd" },
 		css = { "prettierd" },
 		html = { "prettierd" },
-		json = { "biome" },
-		jsonc = { "biome" },
+		json = { "fixjson" },
+		jsonc = { "fixjson" },
 	},
 	format_on_save = true,
 })

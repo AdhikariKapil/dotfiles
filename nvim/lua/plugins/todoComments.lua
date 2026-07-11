@@ -15,6 +15,7 @@ TodoComments.setup({
 		TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 		FORGETNOT = { icon = " ", color = "hint" },
 	},
+
 	-- Patterns for hl markdown support
 	highlight = {
 		multiline = true,
@@ -28,23 +29,14 @@ TodoComments.setup({
 			[[<!--\s*(KEYWORDS)\s*:.*-->]], -- HTML comments with colon
 			[[<!--\s*(KEYWORDS)\s*.*-->]], -- HTML comments without colon
 		},
-		comments_only = false, -- highlighting outside of comments
+		comments_only = false, -- Highlighting outside of comments
 	},
 })
-vim.keymap.set("n", "<leader>st", "<cmd>TodoQuickFix<CR>", { desc = "Todo Quick Fix" })
-vim.keymap.set("n", "]]", function()
-	TodoComments.jump_prev()
-end, { desc = "Next todo comment" })
 
+vim.keymap.set("n", "<leader>st", "<cmd>TodoQuickFix<CR>", { desc = "Todo Quick Fix" })
 vim.keymap.set("n", "[[", function()
 	TodoComments.jump_next()
+end, { desc = "Next todo comment" })
+vim.keymap.set("n", "]]", function()
+	TodoComments.jump_prev()
 end, { desc = "Previous todo comment" })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "qf",
-	callback = function()
-		vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = true, remap = true })
-		vim.keymap.set("n", "<Esc>", ":cclose<CR>", { buffer = true, remap = true })
-		vim.keymap.set("n", "q", ":cclose<CR>", { buffer = true, remap = true })
-	end,
-})

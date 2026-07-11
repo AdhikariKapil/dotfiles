@@ -5,6 +5,7 @@ local config = wezterm.config_builder()
 
 --- === APPEARANCE === ---
 config.font_size = 11.5
+config.window_background_opacity = 0.8
 
 --- Theme Section (Uncomment to select) ---
 config.color_scheme = "Builtin Dark"

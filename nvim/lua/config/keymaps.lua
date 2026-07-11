@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Replace selected text WITHOUT losing what you losing
 vim.keymap.set("x", "p", [["_dP]], { desc = "Paste over selection without losing yanked text" })
@@ -40,22 +41,13 @@ vim.keymap.set("n", "<leader>'", "<C-w>v", { desc = "Vertical Split" })
 vim.keymap.set("n", '<leader>"', "<C-w>s", { desc = "Horizontal Split" })
 vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Equalize Split" })
 
--- Toggle maximize for splits
-local zoomed = false
-vim.keymap.set("n", "<leader>z", function()
-	if zoomed then
-		vim.cmd("wincmd =")
-		zoomed = false
-	else
-		vim.cmd("wincmd |")
-		vim.cmd("wincmd _")
-		zoomed = true
-	end
-end, { desc = "Toggle maximize" })
+-- Keymap for buffer
+-- vim.keymap.set("n", "H", "<cmd>bnext<CR>", { desc = "Next buffer"})
+-- vim.keymap.set("n", "L", "<cmd>bprevious<CR>", { desc = "Next buffer"})
 
 vim.keymap.set(
 	"n",
-	"<leader>RE",
+	"<leader>RR",
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]],
 	{ desc = "Replace word cursor is on globally" }
 )
@@ -82,13 +74,14 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
--- Vim Splits max and min
-vim.keymap.set("n", "<leader>m", function()
-	if vim.fn.winnr("$") > 1 then
-		-- Multiple windows open: maximize current
-		vim.cmd("tab split")
-	else
-		-- Only one window (already maximized): close tab, go back
-		vim.cmd("tabclose")
-	end
-end, { desc = "Toggle maximize current window" })
+-- Show file path
+vim.keymap.set("n", "<leader>pa", function()
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	print("File: ", path)
+end, { desc = "Copy full file path" })
+
+-- Toggle diagnostics
+vim.keymap.set("n", "<leader>td", function()
+	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle diagnostics" })

@@ -1,6 +1,5 @@
----- Code Companion AI ----
 local function setup_codecompanion()
-	-- Only setup if ollama is availabe
+	-- Only setup if ollama is available
 	local ollama_check = vim.fn.system("pgrep ollama")
 	if vim.v.shell_error ~= 0 then
 		vim.notify("Ollama is not running. Start with: ollama serve", vim.log.levels.WARN)
@@ -36,7 +35,7 @@ local function setup_codecompanion()
 					model = "qwen2.5-coder:7b-instruct",
 				},
 				keymaps = {
-					accept_chage = {
+					accept_change = {
 						modes = { n = "ga" },
 						description = "Accept the suggested change",
 					},
@@ -46,7 +45,7 @@ local function setup_codecompanion()
 						description = "Reject the suggested change",
 					},
 					stop = {
-						modes = { n = "q" },
+						mode = { n = "q" },
 						index = 4,
 						callback = "keymaps.stop",
 						description = "Stop request",
@@ -56,7 +55,7 @@ local function setup_codecompanion()
 		},
 		display = {
 			action_palette = {
-				width = 95,
+				width = 80,
 				height = 10,
 				prompt = "Prompt",
 				provider = "telescope",
@@ -79,7 +78,7 @@ end
 -- Run setup after plugins load
 vim.defer_fn(setup_codecompanion, 100)
 
----- Code Companion Keymaps ----
+-- Code Companion keymaps
 vim.keymap.set("n", "<leader>cc", "<cmd>CodeCompanionChat<CR>", { desc = "Open CodeCompanion Chat" })
-vim.keymap.set("v", "<leader>ce", ":CodeCompanion {BUFFER}  ", { desc = "Inline Edit with AI (visual selection)" })
+vim.keymap.set("v", "<leader>ce", ":CodeCompanion {BUFFER}", { desc = "Inline Edit with AI (visual selection)" })
 vim.keymap.set("v", "<leader>cf", ":'<,'>CodeCompanion /fix<CR>", { desc = "Fix selected code" })

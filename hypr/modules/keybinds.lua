@@ -36,6 +36,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("wlogout"))
 
 -- Monitor Toggle
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-monitor.sh"))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-position.sh"))
 
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. "+ SHIFT + F", hl.dsp.window.float({ action = "toggle" }))

@@ -1,19 +1,14 @@
 require("vim._core.ui2").enable({})
 
-require("options")
-require("keymaps")
-require("commands")
-require("pack")
-
--- LateX settings
-require("latex")
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
+require("plugins.pack")
+require("config.terminal")
 
 vim.opt.clipboard = "unnamedplus"
 
----=== COLOR SCHEMES ===---
--- vim.cmd.colorscheme("moonfly")
--- vim.cmd.colorscheme("unokai")
-
+--=== COLOR SCHEMES ===--
 vim.cmd.colorscheme("unokai")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
