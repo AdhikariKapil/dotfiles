@@ -1,9 +1,16 @@
 {
     "layer": "top",
-    "position": "bottom",
+    "position": "top",
     "width": 1000,
-    "modules-left": ["pulseaudio", "cava"],
-    "modules-center": ["clock", "hyprland/workspaces", "clock#right"],
+    "modules-left": [
+        "pulseaudio",
+        "cava"
+    ],
+    "modules-center": [
+        "clock",
+        "hyprland/workspaces",
+        "clock#right"
+    ],
     "modules-right": [
         "power-profiles-daemon",
         "network",
@@ -28,7 +35,6 @@
             "hibernate": "systemctl hibernate"
         }
     },
-
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -48,8 +54,32 @@
         "interval": 60,
         "format": "{capacity}% {icon}",
         "format-icons": {
-            "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-            "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+            "default": [
+                "󰂎",
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ],
+            "charging": [
+                "󰢟",
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ]
         }
     },
     "network": {
@@ -76,12 +106,17 @@
             "phone-muted": "",
             "portable": "",
             "car": "",
-            "default": [" 󰖀 ", " 󰕾 "]
+            "default": [
+                " 󰖀 ",
+                " 󰕾 "
+            ]
         },
         "scroll-step": 1,
         "on-click": "pavucontrol",
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "ignored-sinks": ["Easy Effects Sink"],
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ],
         "tooltip-format": "{icon} {volume}%",
         "smooth-scrolling-threshold": 1
     },
@@ -91,10 +126,10 @@
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "interval": 10,
         "consume-icons": {
-            "on": " " // Icon shows only when "consume" is on
+            "on": " "
         },
         "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+            "off": "<span color=\"#f53c3c\"></span> ",
             "on": " "
         },
         "repeat-icons": {
@@ -126,10 +161,7 @@
         "autosens": 0,
         "sensitivity": 3,
         "bars": 14,
-        // "lower_cutoff_freq": 50,
-        // "higher_cutoff_freq": 10000,
         "hide_on_silence": false,
-        // "format_silent": "quiet",
         "method": "pulse",
         "source": "auto",
         "stereo": true,
@@ -139,7 +171,16 @@
         "waves": false,
         "noise_reduction": 0.17,
         "input_delay": 2,
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
         "actions": {
             "on-click-right": "mode"
         }
