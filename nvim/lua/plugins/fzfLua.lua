@@ -20,7 +20,7 @@ vim.keymap.set("n", "<leader>fx", function()
 	require("fzf-lua").diagnostics_document()
 end, { desc = "FZF Diagnostics Document" })
 
-vim.keymap.set("n", "<leader>fX", function()
+vim.keymap.set("n", "<leader>xx", function()
 	require("fzf-lua").diagnostics_workspace()
 end, { desc = "FZF Diagnostics Workspace" })
 

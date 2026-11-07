@@ -111,10 +111,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = lsp_on_attach,
 })
 
-vim.keymap.set("n", "<leader>xx", function()
-	vim.diagnostic.setloclist({ open = true })
-end, { desc = "Open diagnostic list" })
-
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Show line Diagnositcs" })
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()

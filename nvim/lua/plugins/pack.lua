@@ -16,9 +16,13 @@ vim.pack.add({
 	-- Vim Fugitive
 	"https://github.com/tpope/vim-fugitive",
 
-	-- Vim-Dadbod
-	"https://github.com/tpope/vim-dadbod",
-	"https://github.com/kristijanhusak/vim-dadbod-ui",
+	-- -- Vim-Dadbod
+	-- "https://github.com/tpope/vim-dadbod",
+	-- "https://github.com/kristijanhusak/vim-dadbod-ui",
+
+	-- DBee
+	"https://github.com/MunifTanjim/nui.nvim",
+	"https://github.com/kndndrj/nvim-dbee",
 
 	-- TodoComments
 	"https://github.com/folke/todo-comments.nvim",
@@ -70,6 +74,12 @@ vim.pack.add({
 
 	-- Iron.nvim
 	"https://github.com/Vigemus/iron.nvim",
+
+	-- Markdown renderer and preview
+	"https://github.com/meanderingprogrammer/render-markdown.nvim",
+	"https://github.com/selimacerbas/mdkite.nvim",
+	-- MdKite dependencies
+	"https://github.com/selimacerbas/kitehost.nvim",
 })
 
 -- Nvim-Tree
@@ -110,6 +120,9 @@ require("plugins.todoComments")
 -- Iron
 require("plugins.iron")
 
+-- Markdown Preview (MdKite)
+require("plugins.markdown-preview")
+
 -- LazyGit
 require("telescope").load_extension("lazygit")
 vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Lazygit" })
@@ -117,9 +130,12 @@ vim.keymap.set("n", "<leader>gl", "<cmd>LazyGitLog<CR>", { desc = "Lazygit Logs"
 
 -- Vim Fugitive
 vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>", { desc = "Git Status" })
-vim.keymap.set("n", "<leader>gp", "<cmd>Git Push<CR>", { desc = "Git Push" })
+vim.keymap.set("n", "<leader>gp", "<cmd>Git push<CR>", { desc = "Git Push" })
+
+--DBee
+require("plugins.databasebee")
 
 -- Dadbod
-vim.keymap.set("n", "<leader>db", "<cmd>DBUIToggle<CR>", { desc = "Open DB UI" })
-vim.keymap.set("n", "<leader>dc", "<cmd>DBUIClose<CR>", { desc = "Close DB UI" })
-vim.keymap.set("n", "<leader>dq", "<cmd>DBUIFindBuffer<CR>", { desc = "Find DB Buffer" })
+-- vim.keymap.set("n", "<leader>db", "<cmd>DBUIToggle<CR>", { desc = "Open DB UI" })
+-- vim.keymap.set("n", "<leader>dc", "<cmd>DBUIClose<CR>", { desc = "Close DB UI" })
+-- vim.keymap.set("n", "<leader>dq", "<cmd>DBUIFindBuffer<CR>", { desc = "Find DB Buffer" })

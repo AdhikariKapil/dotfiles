@@ -1,4 +1,5 @@
 ######## We need SyncedLyrics for this so make sure you install syncedlyrics package ######
+######## We need ueberzugpp for album art
 
 #!/bin/bash
 LYRICS_DIR="/home/whothis/Music/lyrics"

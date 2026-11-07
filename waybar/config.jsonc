@@ -4,7 +4,7 @@
     "width": 1000,
     "modules-left": [
         "pulseaudio",
-        "cava"
+        "network"
     ],
     "modules-center": [
         "clock",
@@ -13,7 +13,6 @@
     ],
     "modules-right": [
         "power-profiles-daemon",
-        "network",
         "battery",
         "custom/power"
     ],
@@ -162,8 +161,8 @@
         "sensitivity": 3,
         "bars": 14,
         "hide_on_silence": false,
-        "method": "pulse",
-        "source": "auto",
+        "method": "pipewire",
+        "source": "alsa_output.pci-0000_00_lf.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink.monitor",
         "stereo": true,
         "reverse": false,
         "bar_delimiter": 0,

@@ -85,3 +85,9 @@ end, { desc = "Copy full file path" })
 vim.keymap.set("n", "<leader>td", function()
 	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = "Toggle diagnostics" })
+
+vim.keymap.set("n", "<leader>xa", vim.diagnostic.setloclist, { desc = "Open diagnostics quickfix list" })
+
+vim.keymap.set("n", "<leader>nsg", function()
+	MiniNotify.show_history()
+end, { desc = "Notification History" })

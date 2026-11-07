@@ -178,11 +178,27 @@
                 panes: [
                     (
                         size: "35%",
-                        borders: "LEFT | RIGHT | TOP | BOTTOM",
-                        border_symbols: Rounded,
-                        border_title: [(kind: Text(" Lyrics "))],
-                        border_title_alignment: Center,
-                        pane: Pane(Lyrics)
+                        pane: Split(
+                            direction: Vertical,
+                            panes: [
+                                (
+                                    size: "45%",
+                                    borders: "LEFT | RIGHT | TOP",
+                                    border_symbols: Inherited(parent: Rounded, bottom_left: "├", bottom_right: "┤"),
+                                    border_title: [(kind: Text(" Album Art "))],
+                                    border_title_alignment: Center,
+                                    pane: Pane(AlbumArt)
+                                ),
+                                (
+                                    size: "55%",
+                                    borders: "LEFT | RIGHT | BOTTOM",
+                                    border_symbols: Inherited(parent: Rounded, bottom_left: "├", bottom_right: "┤"),
+                                    border_title: [(kind: Text(" Lyrics "))],
+                                    border_title_alignment: Center,
+                                    pane: Pane(Lyrics)
+                                ),
+                            ]
+                        ),
                     ),
                     (
                         size: "65%",

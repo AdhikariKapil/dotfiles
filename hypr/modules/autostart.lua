@@ -16,7 +16,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
 	hl.exec_cmd("hyprctl setcursor macOS 24")
-	hl.exec_cmd("discord")
+	-- hl.exec_cmd("discord")
+	hl.exec_cmd("batsignal -c ~/.config/batsignal/config &")
 
 	-- === TMUX + HYPRCTL FIX ===
 	-- Problem: tmux doesn't inherit HYPRLAND_INSTANCE_SIGNATURE,
