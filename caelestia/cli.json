@@ -1,0 +1,104 @@
+{
+  "toggles": {
+    "communication": {
+      "zapzap": {
+        "enable": true,
+        "match": [
+          {
+            "class": "com.rtosta.zapzap"
+          }
+        ],
+        "command": [
+          "zapzap"
+        ],
+        "move": true
+      }
+    },
+    "music": {
+      "rmpc": {
+        "enable": true,
+        "match": [
+          {
+            "class": "foot"
+          },
+          {
+            "title": "rmpc"
+          }
+        ],
+        "command": [
+          "foot",
+          "-a",
+          "rmpc",
+          "-T",
+          "rmpc",
+          "fish",
+          "-C",
+          "exec rmpc"
+        ],
+        "move": true
+      }
+    },
+    "todo": {
+      "planify": {
+        "enable": true,
+        "match": [
+          {
+            "class": "io.github.alainm23.planify"
+          }
+        ],
+        "command": [
+          "planify"
+        ],
+        "move": true
+      }
+    },
+    "messenger": {
+      "messenger": {
+        "enable": true,
+        "match": [
+          {
+            "title": "Messenger"
+          }
+        ],
+        "command": [
+          "brave-origin",
+          "--app=https://messenger.com"
+        ],
+        "move": true
+      }
+    },
+    "gmail": {
+      "brave-gmail": {
+        "enable": true,
+        "match": [
+          {
+            "title": "Gmail"
+          }
+        ],
+        "command": [
+          "brave-origin",
+          "--app=https://mail.google.com/mail/u/1"
+        ],
+        "move": true
+      }
+    },
+    "instagram": {
+      "brave-instagram": {
+        "enable": true,
+        "match": [
+          {
+            "title": "Instagram"
+          }
+        ],
+        "command": [
+          "brave-origin",
+          "--app=https://instagram.com"
+        ],
+        "move": true
+      }
+    }
+  },
+  "theme": {
+    "enableDiscord": true
+  }
+}
