@@ -96,6 +96,17 @@
         ],
         "move": true
       }
+    },
+        "wallhaven": {
+      "brave-wallhaven": {
+        "enable": true,
+        "match": [
+          {
+            "title": "Wallhaven"
+          }
+        ]
+      },
+      "move": true
     }
   },
   "theme": {
