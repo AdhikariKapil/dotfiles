@@ -1,65 +1,114 @@
-# Environment Variables
-set -gx VISUAL nvim
-set -gx EDITOR nvim
-set -gx LAZYVIM_APPNAME lazyvim
+---@diagnostic disable: undefined-global
 
-# Paths (use fish_add_path, it prevents duplicates)
-fish_add_path ~/bin
-fish_add_path ~/.cargo/bin
-fish_add_path ~/.local/bin
+-- WINDOW RULE
+-- Rule to make the rmpc download terminal float and center
+hl.window_rule({
+	match = { class = "^(rmpc-download)$" },
+	float = true,
+	size = "900 600",
+	center = true,
+})
 
-# FZF
-set -gx FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git"
-set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
-set -gx FZF_ALT_C_COMMAND "fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-set -gx FZF_DEFAULT_OPTS "--height 50% --layout=default --border --color=hl:#2dd4bf"
-set -gx FZF_CTRL_T_OPTS "--preview 'bat --color=always -n --line-range :500 {}'"
-set -gx FZF_ALT_C_OPTS "--preview 'eza --icons=always --tree --color=always {} | head -200'"
-set -gx FZF_TMUX_OPTS " -p90%,50% "
+-- Rule to make gmail only appear in special workspace
+hl.window_rule({
+	match = { class = "brave-mail.google.com__mail_u_1-Default" },
+	workspace = "special:gmail",
+})
 
-# FZF Fish integration
-command -v fzf &> /dev/null && fzf --fish | source
+-- Rule to make instagram only appear in special workspace
+hl.window_rule({
+	match = { class = "brave-instagram.com__-Default" },
+	workspace = "special:instagram",
+})
 
-# General
-abbr -a zsh "nvim ~/.zshrc"
-abbr -a szsh "source ~/.zshrc"
-abbr -a q "exit"
-# abbr -a cd "z"
-abbr -a update "eos-rankmirrors --verbose; and yay -Syyu; and pipx upgrade-all; and sudo pacman -Syu; and flatpak update"
-abbr -a mirror "sudo reflector --protocol https --verbose --latest 25 --sort rate --connection-timeout 20 --download-timeout 60 --save /etc/pacman.d/mirrorlist"
+-- Rule to make messenger only appear in special workspace
+hl.window_rule({
+	match = { class = "brave-facebook.com__messages-Default" },
+	workspace = "special:messenger",
+})
 
-# TUI
-abbr -a ff "fastfetch"
-abbr -a file "yazi"
-abbr -a wifi "wlctl"
-abbr -a audio "wiremix"
-abbr -a ai "ollama run qwen2.5-coder:7b-instruct"
-abbr -a removepackage "sudo pacman -Rns (pacman -Qtdq)"
+hl.window_rule({
+	match = { class = "brave-backiee.com__-Default" },
+	workspace = "special:wallhaven",
+})
 
-# RMPC
-abbr -a m "rmpc"
-abbr -a mt "mpc toggle"
+-- Transparent
+hl.window_rule({
+	match = { class = ".*" },
+	opacity = 0.8,
+})
 
-# Tmux
-abbr -a t "tmux new -s main"
-abbr -a ta "tmux a"
-abbr -a tk "tmux kill-server"
+-- Focus HJKL
+hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
+hl.bind("SUPER + J", hl.dsp.focus({ direction = "down" }))
+hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }))
+hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
 
-# ESC ESC - SUDO
-function prepend_sudo
-    if commandline -b | string match -q 'sudo *'
-        commandline -r (string replace 'sudo ' '' (commandline -b))
-    else
-        commandline -r "sudo "(commandline -b)
-    end
-    commandline -f end-of-line
-end
-bind \e\e prepend_sudo
+-- Move window HJKL
+hl.bind("SUPER + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
+hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
+hl.bind("SUPER + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
+hl.bind("SUPER + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 
-# Override Caelestia's default greeting to remove the ASCII art
-function fish_greeting
-    if test -n "$TMUX"
-    else
-        fastfetch
-    end
-end
+-- Clipboard history wipe with confirm
+hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("~/.config/caelestia/scripts/wipe-clipboard.sh"))
+
+-- Browser
+hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("zen-browser"))
+
+-- Toggle bar
+hl.bind("SUPER+ SHIFT + W", hl.dsp.exec_cmd("~/.config/caelestia/scripts/toggle-bar.sh"))
+
+-- APPS
+hl.bind("SUPER + A", hl.dsp.exec_cmd("brave-origin --app=https://chat.deepseek.com"))
+hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd("brave-origin --app=https://chatgpt.com"))
+
+hl.bind("SUPER + SHIFT +G", hl.dsp.exec_cmd("brave-origin --app=https://linkedin.com"))
+
+hl.bind("SUPER + SHIFT +R", hl.dsp.exec_cmd("brave-origin --app=https://monkeytype.com"))
+
+-- SPECIAL WORKSPACE
+hl.bind("SUPER + G", function()
+	-- Check if there are windows in special:gmail
+	local windows = hl.get_workspace_windows("special:gmail")
+	if #windows > 0 then
+		-- There are windows, just toggle visibility
+		hl.dispatch(hl.dsp.workspace.toggle_special("gmail"))
+	else
+		-- No windows, spawn Gmail and it will be automatically placed by the window rule
+		hl.dispatch(hl.dsp.exec_cmd("brave-origin --app=https://mail.google.com/mail/u/1"))
+	end
+end)
+
+hl.bind("SUPER + I", function()
+	-- Check if there are windows in special:instagram
+	local windows = hl.get_workspace_windows("special:instagram")
+	if #windows > 0 then
+		-- There are windows, just toggle visibility
+		hl.dispatch(hl.dsp.workspace.toggle_special("instagram"))
+	else
+		-- No windows, spawn instagram and it will be automatically placed by the window rule
+		hl.dispatch(hl.dsp.exec_cmd("brave-origin --app=https://instagram.com"))
+	end
+end)
+
+hl.bind("SUPER + SHIFT +I", function()
+	-- Check if there are windows in special:instagram
+	local windows = hl.get_workspace_windows("special:messenger")
+	if #windows > 0 then
+		-- There are windows, just toggle visibility
+		hl.dispatch(hl.dsp.workspace.toggle_special("messenger"))
+	else
+		-- No windows, spawn instagram and it will be automatically placed by the window rule
+		hl.dispatch(hl.dsp.exec_cmd("brave-origin --app=https://facebook.com/messages"))
+	end
+end)
+
+hl.bind("SUPER + W", function()
+	local window = hl.get_workspace_windows("special:wallhaven")
+	if #window > 0 then
+		hl.dispatch(hl.dsp.workspace.toggle_special("wallhaven"))
+	else
+		hl.dispatch(hl.dsp.exec_cmd("brave-origin --app=https://backiee.com"))
+	end
+end)
