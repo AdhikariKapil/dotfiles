@@ -14,14 +14,22 @@ hl.window_rule({
 	match = { class = "brave-mail.google.com__mail_u_1-Default" },
 	workspace = "special:gmail",
 })
+
+-- Rule to make instagram only appear in special workspace
 hl.window_rule({
 	match = { class = "brave-instagram.com__-Default" },
 	workspace = "special:instagram",
 })
 
+-- Rule to make messenger only appear in special workspace
 hl.window_rule({
 	match = { class = "brave-facebook.com__messages-Default" },
 	workspace = "special:messenger",
+})
+
+hl.window_rule({
+	match = { class = "brave-backiee.com__-Default" },
+	workspace = "special:wallhaven",
 })
 
 -- Transparent
@@ -42,17 +50,18 @@ hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 hl.bind("SUPER + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind("SUPER + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 
+-- Clipboard history wipe with confirm
+hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("~/.config/caelestia/scripts/wipe-clipboard.sh"))
+
 -- Browser
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("zen-browser"))
 
 -- Toggle bar
-hl.bind("SUPER + W", hl.dsp.exec_cmd("~/.config/caelestia/scripts/toggle-bar.sh"))
+hl.bind("SUPER+ SHIFT + W", hl.dsp.exec_cmd("~/.config/caelestia/scripts/toggle-bar.sh"))
 
 -- APPS
 hl.bind("SUPER + A", hl.dsp.exec_cmd("brave-origin --app=https://chat.deepseek.com"))
 hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd("brave-origin --app=https://chatgpt.com"))
-
--- hl.bind("SUPER + SHIFT + I", hl.dsp.exec_cmd("brave-origin --app=https://facebook.com/messages"))
 
 hl.bind("SUPER + SHIFT +G", hl.dsp.exec_cmd("brave-origin --app=https://linkedin.com"))
 
@@ -92,5 +101,14 @@ hl.bind("SUPER + SHIFT +I", function()
 	else
 		-- No windows, spawn instagram and it will be automatically placed by the window rule
 		hl.dispatch(hl.dsp.exec_cmd("brave-origin --app=https://facebook.com/messages"))
+	end
+end)
+
+hl.bind("SUPER + W", function()
+	local window = hl.get_workspace_windows("special:wallhaven")
+	if #window > 0 then
+		hl.dispatch(hl.dsp.workspace.toggle_special("wallhaven"))
+	else
+		hl.dispatch(hl.dsp.exec_cmd("brave-origin --app=https://backiee.com"))
 	end
 end)
