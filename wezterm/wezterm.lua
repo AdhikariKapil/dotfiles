@@ -62,6 +62,14 @@ config.keys = {
 	{ key = "y", mods = "LEADER", action = act.CopyTo("Clipboard") },
 }
 
+-- For caelestia active window stop SHELL from changing the window title to the current file path
+wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+	-- This forces the title to always be "Terminal"
+	-- and ignore whatever the shell/nvim is trying to set
+	return "Terminal"
+end)
+
+
 config.key_tables = {}
 
 -- Finally, return the configuration to wezterm:
